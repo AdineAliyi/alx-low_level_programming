@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
   * _strpbrk - searches a string for any char in a set of bytes
