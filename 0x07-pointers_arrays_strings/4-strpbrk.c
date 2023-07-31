@@ -6,6 +6,7 @@
   * @accept: the set of bytes to search for
   * Return: a pointer to the byte in s that matches a byte in accept
   */
+
 char *_strpbrk(char *s, char *accept)
 {
 	int in_s = 0, in_a;
@@ -14,7 +15,7 @@ char *_strpbrk(char *s, char *accept)
 	/* loop through s to the end */
 	while (s[in_s])
 	{
-		/* search for char "s[in_s]" in "accept" */
+	
 		for (in_a = 0; accept[in_a]; in_a++)
 		{
 			/* find a match, get its address, break */
