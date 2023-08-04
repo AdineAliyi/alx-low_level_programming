@@ -8,29 +8,24 @@
   * @i: counter
   * Return: 0-not prime, 1-prime
   */
-int isPrime(int num, int i)
+int prime2(int a, int b)
 {
-	/* base cases: 1, 2, prime and not-prime */
-	if (num == 1)
-		return (0);
-	if (num == 2)
+	if (a == b)
 		return (1);
-	if (num < (i * i))
-		return (1);
-	if (num % i == 0)
+	else if (a % b == 0)
 		return (0);
-
-	/* inc. the divisor */
-	return (isPrime(num, i + 1));
+	return (prime2(a, b + 1));
 }
-
 /**
-  * is_prime_number - checks for prime numbers
-  * @n: number under consideration
-  * Return: 1 if prime else 0
-  */
+ * is_prime_number - checks if a number is prime
+ * @n: Number Integer
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
 int is_prime_number(int n)
 {
-	/* call a fn that has a static variable divisor */
-	return (isPrime(abs(n), 2));
+	if (n <= 1)
+		return (0);
+	return (prime2(n, 2));
 }
