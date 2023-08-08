@@ -2,52 +2,15 @@
 #include <stdlib.h>
 
 /**
-  * main - To printthe  minimum  number of coins
-  * @argc: number of args
+  * main - To print the minimum number of coins to
+  * make change
+  * @argc: number of argd
   * @argv: string array of args
   * Return: 0 or 1 if error
   */
-int coinConverter(int i)
-{
-	int count = 0;
-
-	while (i != 0)
-	{
-		if (i % 10 == 9 || i % 10 == 7)
-			i -= 2;
-		else if (i % 25 == 0)
-			i -= 25;
-		else if (i % 10 == 0)
-			i -= 10;
-		else if (i % 5 == 0)
-			i -= 5;
-		else if (i % 2 == 0)
-		{
-			if (i % 10 == 6)
-				i -= 1;
-			else
-				i -= 2;
-		}
-		else
-			i -= 1;
-
-		count++;
-	}
-
-	return (count);
-}
-
-/**
- * main - To take exactly one argument for minimum coin count
- * @argc: Number of command line arguments
- * @argv: Array name
- * Return: 0 if exactly 1 argument is passed into this program, 1 otherwise
- */
 int main(int argc, char *argv[])
 {
-	int i, coin;
-
-	coin = 0;
+	int coins = 0, cents;
 
 	if (argc != 2)
 	{
@@ -55,16 +18,23 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 
-	i = atoi(argv[1]);
+	cents = atoi(argv[1]);
 
-	if (i < 0)
-		printf("0\n");
-	else
+	/* loop until cents are 1 */
+	while (cents >= 1)
 	{
-		coin = coinConverter(i);
-
-		printf("%d\n", coin);
+		if (cents >= 25)
+			cents -= 25;
+		else if (cents >= 10)
+			cents -= 10;
+		else if (cents >= 5)
+			cents -= 5;
+		else if (cents >= 2)
+			cents -= 2;
+		else
+			cents -= 1;
+		coins++;
 	}
-
+	printf("%d\n", coins);
 	return (0);
 }
