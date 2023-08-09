@@ -7,21 +7,24 @@
  *
  * Return: pointer of an array of chars
  */
-char *_strdup(char *str)
+
+Wchar *_strdup(char *str)
 {
-int i, j;
-	char *dupe;
+char *strout;
+unsigned int i, j;
 
-	if (!str)
-	return (NULL);
+if (str == NULL)
+return (NULL);
 
-	j = strlen(str);
-	dupe = malloc(j * sizeof(char) + 1);
+for (i = 0; str[i] != '\0'; i++)
 
-	if (dupe)
-	{
-		for (i = 0; i < n; i++)
-			*(dupe + i) = *(str + i);
-	}
-	return (dupe);
+strout = (char *)malloc(sizeof(char) * (i + 1));
+
+if (strout == NULL)
+return (NULL);
+
+for (j = 0; j <= i; j++)
+strout[j] = str[j];
+
+return (strout);
 }
