@@ -9,21 +9,19 @@
  */
 char *_strdup(char *str)
 {
-char *strout;
-unsigned int i, j;
+int i, j;
+	char *dupe;
 
-if (str == NULL)
-return (NULL);
+	if (!str)
+	return (NULL);
 
-for (i = 0; str[i] != '\0'; i++)
+	j = strlen(str);
+	dupe = malloc(j * sizeof(char) + 1);
 
-strout = (char *)malloc(sizeof(char) * (i + 1));
-
-if (strout == NULL)
-return (NULL);
-
-for (j = 0; j <= i; j++)
-strout[j] = str[j];
-
-return (strout);
+	if (dupe)
+	{
+		for (i = 0; i < n; i++)
+			*(dupe + i) = *(str + i);
+	}
+	return (dupe);
 }
