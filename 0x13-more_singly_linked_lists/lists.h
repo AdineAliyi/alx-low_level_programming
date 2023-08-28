@@ -4,7 +4,7 @@
 /*
  * File: lists.h
  * Auth: Ali Said
- * Desc: Header file that contains  the prototypes and definitions for all functions
+ * Desc: Header file that contains prototypes and definitions for all funcs.
  */
 
 #include <stdlib.h>
